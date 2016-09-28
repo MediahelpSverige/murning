@@ -37,7 +37,6 @@ class ExportToHtmlTemplate extends ExportBase implements CFDBExport {
         $filelinks = '';
         $wpautop = false;
         $stripBR = false;
-        $substituteEmptyStringForUnknownFields = false;
         if ($this->options && is_array($this->options)) {
             if (isset($this->options['filelinks'])) {
                 $filelinks = $this->options['filelinks'];
@@ -47,9 +46,6 @@ class ExportToHtmlTemplate extends ExportBase implements CFDBExport {
             }
             if (isset($this->options['stripbr'])) {
                 $stripBR = $this->options['stripbr'] == 'true';
-            }
-            if (isset($this->options['unknownfields'])) {
-                $substituteEmptyStringForUnknownFields = $this->options['unknownfields'] == 'true';
             }
         }
 
@@ -203,15 +199,8 @@ class ExportToHtmlTemplate extends ExportBase implements CFDBExport {
                 foreach ($replacements as $i => $repl) {
                     $replacements[$i] = nl2br($replacements[$i]); // preserve line breaks
                 }
-
-                // Replace variables
-                $output = str_replace($varNamesToSub, $replacements, $template);
-                if ($substituteEmptyStringForUnknownFields) {
-                    $output = preg_replace('/\${[^}]+}/', '', $output);
-                }
-
                 // Process nested short codes
-                echo do_shortcode($output);
+                echo do_shortcode(str_replace($varNamesToSub, $replacements, $template));
             }
         }
 

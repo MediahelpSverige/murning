@@ -6,10 +6,9 @@ class wfUpdateCheck {
 	private $core_update_version = 0;
 	private $plugin_updates = array();
 	private $theme_updates = array();
-	private $api = null;
 
 	public function __construct() {
-		$this->api = new wfAPI(wfConfig::get('apiKey'), wfUtils::getWPVersion());
+
 	}
 
 	/**
@@ -68,10 +67,6 @@ class wfUpdateCheck {
 			require_once(ABSPATH . WPINC . '/update.php');
 		}
 
-		if (!function_exists('plugins_api')) {
-			require_once(ABSPATH . '/wp-admin/includes/plugin-install.php');
-		}
-
 		wp_update_plugins(); // Check for Plugin updates
 		$update_plugins = get_site_transient('update_plugins');
 
@@ -80,35 +75,10 @@ class wfUpdateCheck {
 				if (!function_exists('get_plugin_data')) {
 					require_once ABSPATH . '/wp-admin/includes/plugin.php';
 				}
-				
 				$pluginFile = wfUtils::getPluginBaseDir() . $plugin;
-				$valsArray = (array) $vals;
-				
 				$data = get_plugin_data($pluginFile);
 				$data['pluginFile'] = $pluginFile;
-				$data['newVersion'] = (isset($valsArray['new_version']) ? $valsArray['new_version'] : 'Unknown');
-				$data['slug'] = (isset($valsArray['slug']) ? $valsArray['slug'] : null);
-				$data['wpURL'] = (isset($valsArray['url']) ? rtrim($valsArray['url'], '/') : null);
-
-				//Check the vulnerability database
-				if (isset($valsArray['slug']) && isset($valsArray['new_version'])) {
-					try {
-						$result = $this->api->call('plugin_vulnerability_check', array(), array(
-							'slug' => $valsArray['slug'],
-							'fromVersion' => $data['Version'],
-							'toVersion' => $valsArray['new_version'],
-						));
-						$data['vulnerabilityPatched'] = isset($result['vulnerable']) && $result['vulnerable'];
-					}
-					catch(Exception $e){
-						$data['vulnerabilityPatched'] = false;
-					}
-				}
-				else {
-					$data['vulnerabilityPatched'] = false;
-				}
-				
-
+				$data['newVersion'] = $vals->new_version;
 				$this->plugin_updates[] = $data;
 			}
 		}
@@ -140,9 +110,9 @@ class wfUpdateCheck {
 				foreach ($themes as $name => $themeData) {
 					if (strtolower($name) == $theme) {
 						$this->theme_updates[] = array(
-							'newVersion' => (isset($vals['new_version']) ? $vals['new_version'] : 'Unknown'),
-							'package'    => (isset($vals['package']) ? $vals['package'] : null),
-							'URL'        => (isset($vals['url']) ? $vals['url'] : null),
+							'newVersion' => $vals['new_version'],
+							'package'    => $vals['package'],
+							'URL'        => $vals['url'],
 							'Name'       => $themeData['Name'],
 							'name'       => $themeData['Name'],
 							'version'    => $themeData['Version']

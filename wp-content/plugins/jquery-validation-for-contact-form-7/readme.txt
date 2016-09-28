@@ -2,15 +2,15 @@
 Contributors: dnesscarkey
 Tags: contact form 7 js validation, jquery validation, contact form 7 jquery validation, form validation, contact form 7 us phone number validation, file extension validation, url validation, credit card validaton, minlength validation, range validation
 Requires at least: 3.0
-Tested up to: 4.5.3
-Stable tag: 3.2
+Tested up to: 4.3.1
+Stable tag: 3.1
 
 New standard of validation for Contact Form 7 plugin.
 
 == Description ==
 This plugin adds jquery validation to your contact form 7. You will be able to validate extra validation rules like: url, date, credit card, phone number in the contact form 7 fields.
 
-<strong>Benefits you get from this plugins.</strong>
+Benefits you get from this plugins.
 
 * Adds Jquery Validation to Contact Form Fields.
 * More faster validation than of contact form core validation.
@@ -21,7 +21,7 @@ This plugin adds jquery validation to your contact form 7. You will be able to v
 * Interactive validation that your users love.
 * Works with multiple forms now.
 
-<strong>Validation Methods available in lite version.</strong>
+Validation Methods available.
 
 * Required
 * Email
@@ -31,16 +31,10 @@ This plugin adds jquery validation to your contact form 7. You will be able to v
 * Digit only
 * Credit Card
 * US Phone number
-* Letters Only
-* IBAN (International Bank account number)
 
-<a href="http://dnesscarkey.com/jquery-validation/lite-version-demo/" target="_blank">LITE VERSION DEMO</a>
+<a href="http://dnesscarkey.com/jquery-validation/lite-version-demo/" target="_blank">Lite Version Demo</a>
 
-<strong>Documentation</strong>
-<a href="http://dnesscarkey.com/jquery-validation/how-to-use/" target="_blank">How To Use</a> | <a href="http://dnesscarkey.com/jquery-validation/validation-methods/" target="_blank">Validation Methods</a>
-
-
-<strong>Additional Validation Methods available in PRO version.</strong>
+Additional Validation Methods available in PRO version.
 
 * Minimum Number - Makes the element require a given minimum.
 * Maximum Number - Makes the element require a given maximum.
@@ -52,12 +46,12 @@ This plugin adds jquery validation to your contact form 7. You will be able to v
 * Extension - Makes the element require a certain file extension
 * Require Group - Ensures a given number of fields in a group are complete.
 
-<strong>Additional Features in Pro version.</strong>
+Additional Features in Pro version.
 
 * 4 different <a href="http://dnesscarkey.com/jquery-validation/validation-error-theme/" target="_blank">validation error theme</a> to choose from. 
 * Change <a href="http://dnesscarkey.com/jquery-validation/change-error-message/" target="_blank">validation error message</a>.
 
-<a href="http://dnesscarkey.com/jquery-validation/pro-version-demo/" target="_blank">PRO VERSION DEMO</a>
+<a href="http://dnesscarkey.com/jquery-validation/pro-version-demo/" target="_blank">Pro Version Demo</a>
 
 For Support Please Visit <a href="http://dineshkarki.com.np/forums/forum/jquery-validation-for-contact-form">http://dineshkarki.com.np/forums/forum/jquery-validation-for-contact-form</a>. We don't respond to tickets created here.
 
@@ -88,11 +82,6 @@ Yes, this plugin has been take care to handle multiple forms in a single page.
 1. Validation Error None (Lite Version)
 
 == Changelog ==
-
-= 3.2 =
-
-* Added extra email validaton rule.
-* Fixed checkbox validation issue.
 
 = 3.1 =
 

@@ -57,26 +57,25 @@ class CFDBViewOptions extends CFDBView {
             <div id="cfdb_options_tabs">
                 <ul>
                     <li>
-                        <a href="#integrations"><?php _e('Integrations', 'contact-form-7-to-database-extension'); ?></a>
+                        <a href="#cfdb_config-1"><?php _e('Integrations', 'contact-form-7-to-database-extension'); ?></a>
                     </li>
                     <li>
-                        <a href="#security"><?php _e('Security', 'contact-form-7-to-database-extension'); ?></a>
+                        <a href="#cfdb_config-2"><?php _e('Security', 'contact-form-7-to-database-extension'); ?></a>
                     </li>
                     <li>
-                        <a href="#saving"><?php _e('Saving', 'contact-form-7-to-database-extension'); ?></a>
+                        <a href="#cfdb_config-3"><?php _e('Saving', 'contact-form-7-to-database-extension'); ?></a>
                     </li>
                     <li>
-                        <a href="#export"><?php _e('Export', 'contact-form-7-to-database-extension'); ?></a>
+                        <a href="#cfdb_config-4"><?php _e('Export', 'contact-form-7-to-database-extension'); ?></a>
                     </li>
                     <li>
-                        <a href="#adminview"><?php _e('Admin View', 'contact-form-7-to-database-extension'); ?></a>
+                        <a href="#cfdb_config-5"><?php _e('Admin View', 'contact-form-7-to-database-extension'); ?></a>
                     </li>
                     <li>
-                        <a href="#system"><?php _e('System', 'contact-form-7-to-database-extension'); ?></a>
+                        <a href="#cfdb_config-10"><?php _e('System', 'contact-form-7-to-database-extension'); ?></a>
                     </li>
                 </ul>
-                <div id="integrations">
-                    <h3><?php _e('Capture form submissions from these plugins', 'contact-form-7-to-database-extension') ?></h3>
+                <div id="cfdb_config-1">
                     <?php
                     $filter = function ($name) {
                         return strpos($name, 'IntegrateWith') === 0 || $name == 'GenerateSubmitTimeInCF7Email';
@@ -84,20 +83,20 @@ class CFDBViewOptions extends CFDBView {
                     $this->outputSettings($filter, $plugin);
                     ?>
                 </div>
-                <div id="security">
+                <div id="cfdb_config-2">
                     <?php
                     $filter = function ($name) {
                         return in_array($name, array(
-                                'HideAdminPanelFromNonAdmins', 'CanSeeSubmitDataViaShortcode', 'CanSeeSubmitData', 'CanChangeSubmitData',
-                                'FunctionsInShortCodes', 'AllowRSS'));
+                                'CanSeeSubmitData', 'CanSeeSubmitDataViaShortcode', 'CanChangeSubmitData',
+                                'FunctionsInShortCodes', 'HideAdminPanelFromNonAdmins', 'AllowRSS'));
                     };
                     $this->outputSettings($filter, $plugin);
                     ?>
                     <p>
-                        <a target="_blank" href="http://cfdbplugin.com/?page_id=625" style="font-weight: bold"><?php _e('Notes on security settings', 'contact-form-7-to-database-extension'); ?></a>
+                        <a target="_blank" href="http://cfdbplugin.com/?page_id=625" style="font-weight: bold">Notes on security settings</a>
                     </p>
                 </div>
-                <div id="saving">
+                <div id="cfdb_config-3">
                     <?php
                     $filter = function ($name) {
                         return in_array($name, array(
@@ -107,7 +106,7 @@ class CFDBViewOptions extends CFDBView {
                     $this->outputSettings($filter, $plugin);
                     ?>
                 </div>
-                <div id="export">
+                <div id="cfdb_config-4">
                     <?php
                     $filter = function ($name) {
                         return in_array($name, array(
@@ -116,7 +115,7 @@ class CFDBViewOptions extends CFDBView {
                     $this->outputSettings($filter, $plugin);
                     ?>
                 </div>
-                <div id="adminview">
+                <div id="cfdb_config-5">
                     <?php
                     $filter = function ($name) {
                         return in_array($name, array(
@@ -126,7 +125,7 @@ class CFDBViewOptions extends CFDBView {
                     $this->outputSettings($filter, $plugin);
                     ?>
                 </div>
-                <div id="system">
+                <div id="cfdb_config-10">
                     <?php $this->outputSystemSettings($plugin);
                     $filter = function ($name) {
                         return in_array($name, array(

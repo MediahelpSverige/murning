@@ -283,16 +283,6 @@ final class WSAL_AlertManager {
                 $data['CurrentUserRoles'] = $currentUserRoles;
             }
         }
-        // Check if the user management plugin is loaded and adds the SessionID
-        if (class_exists('WSAL_User_Management_Plugin')) {
-            if (function_exists('get_current_user_id')) {
-                $session_tokens = get_user_meta(get_current_user_id(), 'session_tokens', true);
-                if (!empty($session_tokens)) {
-                    end($session_tokens);
-                    $data['SessionID'] = key($session_tokens);
-                }
-            }
-        }
         //if(isset($_SERVER['REMOTE_HOST']) && $_SERVER['REMOTE_HOST'] != $data['ClientIP'])
         //  $data['ClientHost'] = $_SERVER['REMOTE_HOST'];
         //$data['OtherIPs'] = $_SERVER['REMOTE_HOST'];
@@ -344,7 +334,7 @@ final class WSAL_AlertManager {
      * @return boolean True if disabled, false otherwise.
      */
     public function IsDisabledUser($user)
-    {
+    { 
         return (in_array($user, $this->GetDisabledUsers())) ? true : false;
     }
     
@@ -352,7 +342,7 @@ final class WSAL_AlertManager {
      * @return Returns an array of disabled users.
      */
     public function GetDisabledUsers()
-    {
+    { 
         return $this->plugin->settings->GetExcludedMonitoringUsers();
     }
 
@@ -374,7 +364,7 @@ final class WSAL_AlertManager {
      * @return Returns an array of disabled users.
      */
     public function GetDisabledRoles()
-    {
+    { 
         return $this->plugin->settings->GetExcludedMonitoringRoles();
     }
 
@@ -388,4 +378,5 @@ final class WSAL_AlertManager {
         }
         return $is_disabled;
     }
+    
 }

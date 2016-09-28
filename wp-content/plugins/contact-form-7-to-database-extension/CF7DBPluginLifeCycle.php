@@ -126,7 +126,7 @@ abstract class CF7DBPluginLifeCycle extends CF7DBInstallIndicator {
                          array(&$this, 'settingsPage'));
     }
 
-    public function getSettingsSlug() {
+    protected function getSettingsSlug() {
         return get_class($this) . 'Settings';
     }
 

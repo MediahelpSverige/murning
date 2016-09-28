@@ -45,8 +45,7 @@ jQuery( function ( $ ) {
 				);
 		}
 	});
-	
-	$( '#the-comment-list' ).on( 'click', '.remove_url', function () {
+	$('.remove_url').live('click', function () {
 		var thisId = $(this).attr('commentid');
 		var data = {
 			action: 'comment_author_deurl',
@@ -83,7 +82,8 @@ jQuery( function ( $ ) {
 		});
 
 		return false;
-	}).on( 'click', '.akismet_undo_link_removal', function () {
+	});
+	$('.akismet_undo_link_removal').live('click', function () {
 		var thisId = $(this).attr('cid');
 		var thisUrl = $(this).attr('href');
 		var data = {
@@ -177,12 +177,11 @@ jQuery( function ( $ ) {
 				'limit': limit
 			},
 			function(result) {
-				if (result.counts.processed < limit) {
+				if (result.processed < limit) {
 					window.location.reload();
 				}
 				else {
-					// Account for comments that were caught as spam and moved out of the queue.
-					akismet_check_for_spam(offset + limit - result.counts.spam, limit);
+					akismet_check_for_spam(offset + limit, limit);
 				}
 			}
 		);

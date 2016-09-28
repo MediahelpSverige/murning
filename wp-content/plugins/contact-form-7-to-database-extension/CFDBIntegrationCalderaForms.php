@@ -35,32 +35,26 @@ class CFDBIntegrationCalderaForms {
     }
 
     public function registerHooks() {
-        // https://calderawp.com/doc/caldera_forms_submit_post_process/
-        add_action('caldera_forms_submit_post_process', array(&$this, 'saveFormData'), 10, 4);
+        // http://docs.calderaforms.com/caldera_forms_submit_post_process_end/
+        add_action('caldera_forms_submit_post_process_end', array(&$this, 'saveFormData'), 10, 3);
     }
 
     /**
      * @param $form array
      * @param $referrer array
      * @param $process_id string
-     * @param int $entry_id
      * @return bool
      */
-    public function saveFormData($form, $referrer, $process_id, $entry_id) {
-
-        if (!class_exists('Caldera_Forms')) {
-            // Caldera not installed
-            return true;
-        }
-
+    public function saveFormData($form, $referrer, $process_id) {
         try {
             // debug
 //            $this->plugin->getErrorLog()->log('$form: ' . print_r($form, true));
 //            $this->plugin->getErrorLog()->log('$referrer: ' . print_r($referrer, true));
 //            $this->plugin->getErrorLog()->log('$process_id: ' . print_r($process_id, true));
-//            $this->plugin->getErrorLog()->log('$entry_id: ' . print_r($entry_id, true));
+//            global $processed_data;
+//            $this->plugin->getErrorLog()->log('$processed_data: ' . print_r($processed_data, true));
 
-            $data = $this->convertData($form, $entry_id);
+            $data = $this->convertData($form);
             return $this->plugin->saveFormData($data);
         } catch (Exception $ex) {
             $this->plugin->getErrorLog()->logException($ex);
@@ -70,40 +64,33 @@ class CFDBIntegrationCalderaForms {
 
     /**
      * @param $form array
-     * @param int $entry_id
      * @return null|object
      */
-    public function convertData($form, $entry_id) {
+    public function convertData($form) {
+        global $processed_data;
 
-        if (is_array($form)) {
+        if (is_array($form) && is_array($processed_data)) {
             $title = $form['name'];
             $postedData = array();
             $uploadedFiles = array();
 
-            $fields = $form['fields'];
+            $results = $processed_data[$form['ID']];
 
-            foreach ($fields as $field_id => $field) {
+            foreach ($results as $field_id => $field_value) {
 
-                $field_value = Caldera_Forms::get_field_data($field_id, $form, $entry_id);
-//                $this->plugin->getErrorLog()->log("$field_id=" . print_r($field_value, true));  // debug
-//                $this->plugin->getErrorLog()->log("$field_id=" . print_r($field, true));  // debug
                 if (!array_key_exists($field_id, $form['fields'])) {
                     // ignore non-field entries _entry_id and _entry_token
                     continue;
                 }
-
-                $field_name = $field['label'];
-                $is_file = in_array($field['type'], array('file', 'advanced_file'));
+                $field_name = $form['fields'][$field_id]['label'];
+                $is_file = $form['fields'][$field_id]['type'] == 'file';
 
                 if (is_array($field_value)) {
                     $postedData[$field_name] = implode(',', $field_value);
-                } else if ($is_file && $field_value != null) {
+                } else if ($is_file && $field_value != null)  {
                     // $field_value is a URL to the file like
                     // http://SITE.com/wp-content/uploads/2015/05/my_file.png
                     $postedData[$field_name] = basename($field_value);
-                    if (!function_exists('get_home_path')) {
-                        include_once ABSPATH . '/wp-admin/includes/file.php';
-                    }
                     $path = get_home_path() . $this->getUrlWithoutSchemeHostAndPort($field_value);
                     $uploadedFiles[$field_name] = $path;
                 } else {

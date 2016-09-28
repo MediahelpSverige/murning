@@ -63,8 +63,7 @@ class CFDBViewImportCsv extends CFDBView
                             <option value=""></option>
                             <?php
                             foreach ($forms as $formName) {
-                                $formNameValueEscaped = htmlspecialchars($formName, ENT_QUOTES, 'UTF-8');
-                                echo "<option value=\"$formNameValueEscaped\">$formNameValueEscaped</option>";
+                                echo "<option value=\"$formName\">$formName</option>";
                             }
                             ?>
                         </select>
@@ -90,8 +89,7 @@ class CFDBViewImportCsv extends CFDBView
                 <option value=""></option>
                 <?php
                 foreach ($forms as $formName) {
-                    $formNameValueEscaped = htmlspecialchars($formName, ENT_QUOTES, 'UTF-8');
-                    echo "<option value=\"$formNameValueEscaped\">$formNameValueEscaped</option>";
+                    echo "<option value=\"$formName\">$formName</option>";
                 }
                 ?>
             </select>
@@ -112,8 +110,7 @@ class CFDBViewImportCsv extends CFDBView
                 <option value=""></option>
                 <?php
                 foreach ($forms as $formName) {
-                    $formNameValueEscaped = htmlspecialchars($formName, ENT_QUOTES, 'UTF-8');
-                    echo "<option value=\"$formNameValueEscaped\">$formNameValueEscaped</option>";
+                    echo "<option value=\"$formName\">$formName</option>";
                 }
                 ?>
             </select>

@@ -232,17 +232,6 @@ class WSAL_Settings {
     public function SetIncognito($enabled){
         return $this->_plugin->SetGlobalOption('hide-plugin', $enabled);
     }
-
-    /**
-     * Checking if Logging is enabled.
-     */
-    public function IsLoggingDisabled(){
-        return $this->_plugin->GetGlobalOption('disable-logging');
-    }
-
-    public function SetLoggingDisabled($disabled){
-        return $this->_plugin->SetGlobalOption('disable-logging', $disabled);
-    }
     
     /**
      * Checking if the data will be removed.
@@ -509,9 +498,8 @@ class WSAL_Settings {
             if (preg_match("/^(([1-9]?[0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]).){3}([1-9]?[0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$/", $ip)) return $ip;
             //Regex IPV6
             elseif (preg_match("/^\s*((([0-9A-Fa-f]{1,4}:){7}([0-9A-Fa-f]{1,4}|:))|(([0-9A-Fa-f]{1,4}:){6}(:[0-9A-Fa-f]{1,4}|((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3})|:))|(([0-9A-Fa-f]{1,4}:){5}(((:[0-9A-Fa-f]{1,4}){1,2})|:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3})|:))|(([0-9A-Fa-f]{1,4}:){4}(((:[0-9A-Fa-f]{1,4}){1,3})|((:[0-9A-Fa-f]{1,4})?:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){3}(((:[0-9A-Fa-f]{1,4}){1,4})|((:[0-9A-Fa-f]{1,4}){0,2}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){2}(((:[0-9A-Fa-f]{1,4}){1,5})|((:[0-9A-Fa-f]{1,4}){0,3}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){1}(((:[0-9A-Fa-f]{1,4}){1,6})|((:[0-9A-Fa-f]{1,4}){0,4}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(:(((:[0-9A-Fa-f]{1,4}){1,7})|((:[0-9A-Fa-f]{1,4}){0,5}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:)))(%.+)?\s*$/", $ip)) return $ip;
-            if (!$this->IsLoggingDisabled) {
-                error_log("Invalid IP in ValidateIP function: ".$ip);
-            }
+
+            error_log("Invalid IP in ValidateIP function: ".$ip);
             return false;
         } else {
             return $filteredIP;
@@ -525,7 +513,7 @@ class WSAL_Settings {
     public function SetExcludedMonitoringUsers($users)
     {
         $this->_excluded_users = $users;
-        $this->_plugin->SetGlobalOption('excluded-users', esc_html(implode(',', $this->_excluded_users)));
+        $this->_plugin->SetGlobalOption('excluded-users', implode(',', $this->_excluded_users));
     }
     public function GetExcludedMonitoringUsers()
     {
@@ -541,7 +529,7 @@ class WSAL_Settings {
     protected $_excluded_roles =  array();
     public function SetExcludedMonitoringRoles($roles){
         $this->_excluded_roles = $roles;
-        $this->_plugin->SetGlobalOption('excluded-roles', esc_html(implode(',', $this->_excluded_roles)));
+        $this->_plugin->SetGlobalOption('excluded-roles', implode(',', $this->_excluded_roles));
     }
     public function GetExcludedMonitoringRoles(){
         if(empty($this->_excluded_roles)){
@@ -556,7 +544,7 @@ class WSAL_Settings {
     protected $_excluded_custom = array();
     public function SetExcludedMonitoringCustom($custom){
         $this->_excluded_custom = $custom;
-        $this->_plugin->SetGlobalOption('excluded-custom', esc_html(implode(',', $this->_excluded_custom)));
+        $this->_plugin->SetGlobalOption('excluded-custom', implode(',', $this->_excluded_custom));
     }
     public function GetExcludedMonitoringCustom(){
         if(empty($this->_excluded_custom)){
@@ -572,7 +560,7 @@ class WSAL_Settings {
     protected $_excluded_ip = array();
     public function SetExcludedMonitoringIP($ip){
         $this->_excluded_ip = $ip;
-        $this->_plugin->SetGlobalOption('excluded-ip', esc_html(implode(',', $this->_excluded_ip)));
+        $this->_plugin->SetGlobalOption('excluded-ip', implode(',', $this->_excluded_ip));
     }
     public function GetExcludedMonitoringIP(){
         if(empty($this->_excluded_ip)){
@@ -646,30 +634,6 @@ class WSAL_Settings {
 
     public function SetWPBackend($enabled){
         return $this->_plugin->SetGlobalOption('wp-backend', $enabled);
-    }
-
-    public function SetFromEmail($email_address){
-        return $this->_plugin->SetGlobalOption('from-email', trim($email_address));
-    }
-
-    public function GetFromEmail(){
-        return $this->_plugin->GetGlobalOption('from-email');
-    }
-
-    public function SetDisplayName($display_name){
-        return $this->_plugin->SetGlobalOption('display-name', trim($display_name));
-    }
-
-    public function GetDisplayName(){
-        return $this->_plugin->GetGlobalOption('display-name');
-    }
-
-     public function Set404LogLimit($value){
-        return $this->_plugin->SetGlobalOption('log-404-limit', abs($value));
-    }
-
-    public function Get404LogLimit(){
-        return $this->_plugin->GetGlobalOption('log-404-limit', 99);;
     }
     // </editor-fold>
 }

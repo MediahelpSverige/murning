@@ -130,6 +130,9 @@ class WSAL_AuditLogListView extends WP_List_Table
             $cols['site'] = __('Site', 'wp-security-audit-log');
         }
         $cols['mesg'] = __('Message', 'wp-security-audit-log');
+        if ($this->_plugin->settings->IsDataInspectorEnabled()) {
+            $cols['data'] = '';
+        }
         $sel_columns = $this->_plugin->settings->GetColumnsSelected();
         if (!empty($sel_columns)) {
             unset($cols);
@@ -159,9 +162,6 @@ class WSAL_AuditLogListView extends WP_List_Table
                         break;
                 }
             }
-        }
-        if ($this->_plugin->settings->IsDataInspectorEnabled()) {
-            $cols['data'] = '';
         }
         return $cols;
     }
@@ -230,14 +230,6 @@ class WSAL_AuditLogListView extends WP_List_Table
                     $image = '<img src="'. $this->_plugin->GetBaseUrl() . '/img/plugin-logo.png" class="avatar avatar-32 photo" width="32" height="32" alt=""/>';
                     $uhtml = '<i>' . __('Plugin', 'wp-security-audit-log') . '</i>';
                     $roles = '';
-                } elseif ($username == 'Plugins') {
-                    $image = '<img src="'. $this->_plugin->GetBaseUrl() . '/img/wordpress-logo-32.png" class="avatar avatar-32 photo" width="32" height="32" alt=""/>';
-                    $uhtml = '<i>' . __('Plugins', 'wp-security-audit-log') . '</i>';
-                    $roles = '';
-                } elseif ($username == 'Website Visitor') {
-                    $image = '<img src="'. $this->_plugin->GetBaseUrl() . '/img/wordpress-logo-32.png" class="avatar avatar-32 photo" width="32" height="32" alt=""/>';
-                    $uhtml = '<i>' . __('Website Visitor', 'wp-security-audit-log') . '</i>';
-                    $roles = '';
                 } else {
                     $image = '<img src="'. $this->_plugin->GetBaseUrl() . '/img/wordpress-logo-32.png" class="avatar avatar-32 photo" width="32" height="32" alt=""/>';
                     $uhtml = '<i>' . __('System', 'wp-security-audit-log') . '</i>';
@@ -299,8 +291,6 @@ class WSAL_AuditLogListView extends WP_List_Table
                 return '<p class="promo-alert">' . $value .'</p>';
 
             case $name == '%PromoLink%':
-            case $name == '%CommentLink%':
-            case $name == '%CommentMsg%':
                 return $value;
 
             case $name == '%MetaLink%':
@@ -311,22 +301,11 @@ class WSAL_AuditLogListView extends WP_List_Table
                 }
 
             case $name == '%RevisionLink%':
-                return ' Click <a target="_blank" href="'.esc_url($value).'">here</a> to see the content changes.';
-                
-            case $name == '%EditorLinkPost%':
-                return ' <a target="_blank" href="'.esc_url($value).'">View the post</a>';
-                
-            case $name == '%EditorLinkPage%':
-                return ' <a target="_blank" href="'.esc_url($value).'">View the page</a>';
-                
-            case $name == '%CategoryLink%':
-                return ' <a target="_blank" href="'.esc_url($value).'">View the category</a>';
-
-            case $name == '%EditorLinkForum%':
-                return ' <a target="_blank" href="'.esc_url($value).'">View the forum</a>';
-                
-            case $name == '%EditorLinkTopic%':
-                return ' <a target="_blank" href="'.esc_url($value).'">View the topic</a>';
+                if (!empty($value) && $value != 'NULL') {
+                    return ' Click <a target="_blank" href="'.$value.'">here</a> to see the content changes.';
+                } else {
+                    return "";
+                }
                 
             case in_array($name, array('%MetaValue%', '%MetaValueOld%', '%MetaValueNew%')):
                 return '<strong>' . (
@@ -339,9 +318,6 @@ class WSAL_AuditLogListView extends WP_List_Table
                 } else {
                     return '<i>unknown</i>';
                 }
-
-            case $name == '%LinkFile%':
-                return '<a href="'.esc_url($value).'" download>Download the Log file</a>';
 
             case strncmp($value, 'http://', 7) === 0:
             case strncmp($value, 'https://', 7) === 0:
