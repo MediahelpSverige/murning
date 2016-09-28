@@ -1,0 +1,23 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /lab5/wordpress/O_M_Gustavssons/
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /lab5/wordpress/O_M_Gustavssons/index.php [L]
+</IfModule>
+<files wp-config.php>
+order allow,deny 
+deny from all 
+</files>
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /omgmurning/
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /omgmurning/index.php [L]
+</IfModule>
+
+# END WordPress

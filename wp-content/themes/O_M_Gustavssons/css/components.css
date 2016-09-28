@@ -1,0 +1,89 @@
+/*Custom css*/
+/*on of slide btn*/
+.drag-btn {
+	float: right;
+    position: relative;
+    box-shadow: 0 0 0 6px #e6e6e6;
+    border-radius: 150px;
+    height: 18px;
+    margin: 7px;
+}
+.onOff {
+	width: 52px;
+	height: 18px;	
+	border-radius: 50px;
+	margin: 0;
+	overflow: hidden;
+	cursor: pointer;
+	position: relative;
+}
+.onOff .on, .onOff .off {	
+	float: left;
+	white-space: nowrap;
+	color: #fff;
+	font-size: 9px;
+	text-transform: uppercase;
+	width: 50%;
+	height: 18px;
+	line-height: 18px;
+}
+.onOff .on {
+	background: rgb(114,240,194);
+	background: -moz-linear-gradient(top,  rgba(114,240,194,1) 0%, rgba(59,177,134,1) 100%);
+	background: -webkit-linear-gradient(top,  rgba(114,240,194,1) 0%,rgba(59,177,134,1) 100%);
+	background: linear-gradient(to bottom,  rgba(114,240,194,1) 0%,rgba(59,177,134,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#72f0c2', endColorstr='#3bb186',GradientType=0 );
+	padding-left: 10px;
+}
+.onOff .off {
+	background: rgb(234,234,234);
+	background: -moz-linear-gradient(top,  rgba(234,234,234,1) 0%, rgba(142,142,142,1) 100%);
+	background: -webkit-linear-gradient(top,  rgba(234,234,234,1) 0%,rgba(142,142,142,1) 100%);
+	background: linear-gradient(to bottom,  rgba(234,234,234,1) 0%,rgba(142,142,142,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eaeaea', endColorstr='#8e8e8e',GradientType=0 );
+	text-align: right;
+	padding-right: 10px;
+}
+.onOff input[type='checkbox'] {
+	display: none;
+}
+.ofIn {
+	width: 104px;
+	transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-webkit-transition: all 0.3s ease-in-out;
+	-ms-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	height: 18px;
+	position: absolute;
+	left: -52px;
+	top: 0;
+}
+.onOff input[type='checkbox']:checked + .ofIn {
+	left: 0;
+}
+.ofIn:after {
+	
+}
+.drag-btn.bullet:after {
+	content: "";
+	position: absolute;
+	width: 22px;
+	height: 22px;
+	border-radius: 50px;
+	background-color: #c4c4c4;
+	top: 50%;
+	margin-top: -11px;
+	pointer-events: none;
+	left: 0;
+	transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-webkit-transition: all 0.3s ease-in-out;
+	-ms-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+}
+.drag-btn.bullet.checked:after {
+	left: 30px;
+	background-color: #46BE92;
+}
+/*on of slide btn end*/

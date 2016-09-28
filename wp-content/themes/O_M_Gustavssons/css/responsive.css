@@ -1,0 +1,506 @@
+/*responsive css*/
+/*min-width*/
+@media (min-width: 431px) {
+	
+}
+@media (min-width: 601px) {
+	
+}
+@media (min-width: 768px) {	
+	
+}
+
+@media (min-width: 992px) {	
+	
+}
+
+@media (min-width: 1200px) {	
+    .logo a img{
+        width: 170px;
+        height: 90px;
+    }
+}
+
+/*max-width*/
+@media (max-width: 1199px) {	
+    .banner-top h1, .banner-bottom a{
+        font-size: 25px;
+    }
+    .om-para{
+        width: 60%;
+        padding-right: 15px;
+    }
+    .kontact-info-col{
+        width: 40%;
+    }
+    .info-slider .owl-controls{
+      position: relative;
+    }
+     .info-slider .owl-prev, .info-slider .owl-next{
+        font-size: 0;
+    }
+    .info-slider .owl-prev, .info-slider .owl-next {
+     position: absolute;
+     top: 40%;
+     height: 24px;
+      width: 24px;
+   }
+    .info-slider .owl-prev{
+        background: url(../images/back.png)no-repeat;
+        left: 0;
+    }
+    .info-slider .owl-next{
+        background: url(../images/next.png)no-repeat;
+        right: 0;
+    }
+     .product-1 {
+       height: 188px;
+       line-height: 13;
+    }
+    .contact-right {
+       float: left;
+        width: 58%;
+    }
+}
+
+@media (max-width: 991px) {
+    .banner-caption{
+        top: 40%;
+    }
+    .banner-top h1, .banner-bottom a {
+       font-size: 18px;
+    }
+    .nav > li a{
+        padding: 5px 8px 7px;
+        font-size: 16px;
+    }
+    .content {
+       padding: 20px 0;
+    }
+    .content {
+      padding: 20px 0;
+    }
+    .om-para h2.main-heading, .om-para p span {
+      margin-bottom: 10px;
+    }
+    .kontact-info-col{
+        padding: 15px;
+        margin-bottom: 15px;
+    }
+    .kontact-list li a, .kontact-list li{
+        font-size: 12px;
+    }
+    .kontact-list li span{
+        margin-right: 5px;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+    }
+     .main-heading{
+        font-size: 25px;
+    }
+    .om-para p span{
+        font-size: 17px;
+    }
+    h2.main-heading{
+        margin-bottom: 10px;
+    }
+    .info-slider {
+        padding: 20px 30px;
+    }
+    .information p{
+        font-size: 15px;
+    }
+    .copy{
+        padding: 10px;
+    }
+    .kontact-list li{
+        line-height: 40px;
+    }
+    .info-slider h3{
+        font-size: 18px;
+    }
+    .secA-om {
+       padding: 20px 0 0;
+    }
+    .leftOmm p{
+        word-wrap: break-word;
+    }
+    .leftOmm p{
+        font-size: 27px;
+    }
+    .secB-om {
+     padding: 20px 0;
+    }
+    .about-detailsSlider{
+        position: relative;
+        padding: 0 30px;
+    }
+    .about-detailsSlider .owl-prev, .about-detailsSlider .owl-next {
+     position: absolute;
+     top: 50%;
+     height: 24px;
+     width: 24px;
+     font-size: 0;
+    }
+    .about-detailsSlider .owl-prev{
+        background: url(../images/back.png)no-repeat;
+        left: 0;
+        margin-left: -1px;
+    }
+    .about-detailsSlider .owl-next{
+        background: url(../images/next.png)no-repeat;
+        right: 0;
+        margin-right: -1px;
+    }
+    .secB-vara {
+      padding: 20px 0;
+    }
+    .map-col {
+       padding: 20px 0;
+    }
+    .contact-right p{
+        line-height: normal;
+        margin-bottom: 10px;
+    }
+    .map iframe{
+        pointer-events: none;
+    }
+}
+
+@media  (min-width: 768px) and (max-width: 991px) {
+    .address {
+      margin-left: 52px;
+      line-height: normal;
+    }
+	
+}
+
+@media (max-width: 767px) {
+    .navbar-toggle{
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        margin-right: 0;
+    }
+    .navbar-header{
+        position: relative;
+    }
+    .navbar-toggle .icon-bar{
+        background: #eb1b24;
+    }
+    .content-right{
+        float: inherit;
+    }
+    .nav-col{
+        margin-top: 10px;
+    }
+    .nav > li a{
+        color: #fff;
+    }
+    .nav > li.active a, .nav > li a:hover{
+        border-bottom:none;
+        color: #000;
+    }
+    .navbar{
+        position: relative;
+    }
+    .navbar-nav{
+        margin: 0;
+        text-align: center;
+    }
+    .navbar-collapse{
+        background:rgba(235,27,36,0.9);
+        position: absolute;
+        left: 0;
+        right: 0;
+        z-index: 99;
+     }
+    .navbar-nav li:last-child a{
+        padding-right: 8px;
+    }
+    .nav > li + li{
+        padding-left: 0;
+    }
+    .nav-col li + li{
+        padding-left: 10px;
+    }
+    .nav > li + li:after{
+        display: none;
+    }
+    .navbar-collapse{
+        padding-left: 0;
+    }
+    .banner-caption {
+        left: 20px;
+        right: 20px;
+        top: 30%;
+    }
+    .tel-icon::after, .mail-icon::after{
+        top: 10px;
+    }
+    .om-para{
+        width: 100%;
+        padding-right: 0;
+    }
+    .om-para p span {
+      font-size: 15px;
+    }
+    .om-para p{
+        font-size: 15px;
+    }
+    .kontact-info-col {
+        width: 100%;
+    }
+    .kontact-list li{
+        line-height: 40px;
+    }
+    .kontact-list li a, .kontact-list li {
+       font-size: 14px;
+   }
+    .info-slider h3{
+        font-size: 16px;
+    }
+    .footer{
+        position: relative;
+        padding: 10px 0 20px;
+    }
+    .footer-nav{
+        padding-left: 0;
+        border-left: 1px solid transparent;
+    }
+    .copy{
+        position: absolute;
+        left: 10px;
+        right: 10px;
+        text-align: center;
+        bottom: 10px;
+        padding: 0;
+    }
+    .om-para p span, .om-para p, .information p {
+        font-size: 13px;
+    }
+    .kontact-info-col h3, .main-heading{
+        font-size: 18px;
+    }
+    .kontact-list li a{
+        display: inline-block;
+    }
+    header {
+      padding:0;
+     }
+    .kontact-info-col h3{
+        margin-bottom: 10px;
+    }
+    .leftOmm p{
+        text-align: left;
+        font-size: 14px;
+        margin-bottom: 5px;
+    }
+    .secA-om {
+      padding: 10px 0 0;
+   }
+    .rightOmm{
+        border-left: 1px solid transparent;
+        padding: 0;
+    }
+    .rightOmm p span, .rightOmm p, .secB-vara p{
+        font-size: 15px;
+    }
+    .rightOmm p{
+        margin-bottom: 5px;
+    }
+    .sec-heading{
+        padding: 10px;
+    }
+    .product-details h3{
+        font-size: 20px;
+        margin: 10px 0;
+    }
+    .product-details p{
+        font-size: 14px;
+    }
+    .om-css{
+        padding: 0;
+    }
+    .secB-om {
+      padding: 10px 0;
+    }
+    .product-1 {
+      height: 173px;
+       line-height: 12;
+    }
+    .sec-heading h1{
+      font-size: 18px;
+    }
+    .secB-vara, .vara-col{
+       padding: 0;
+    }
+    .contact-right {
+      float: inherit;
+      width: 100%;
+      margin-bottom: 10px;
+    }
+    .contact-right p{
+        max-width: 100%;
+        font-size: 15px;
+    }
+    .imputOuter label{
+        font-size: 15px;
+    }
+    .contact {
+      padding-top: 10px;
+    }
+    .btn-danger{
+        letter-spacing: inherit;
+        font-size: 14px;
+    }
+    .map-col {
+     padding: 0 0 10px;
+    }
+    .map-col p{
+       font-size: 15px;
+        margin-bottom: 10px;
+    }
+    .map iframe{
+        height: 200px;
+    }
+    .imputOuter .form-control{
+        height: 36px;
+    }
+    .imputOuter textarea.form-control{
+        height: 66px;
+    }
+}
+@media (max-width: 600px) {
+    .banner-caption{
+        position: static;
+        max-width: 100%;
+        background: #e12d37;
+    }
+    .banner-top, .banner-bottom{
+        background: transparent;
+    }
+    .banner-top h1, .banner-bottom a {
+       font-size: 15px;
+        color: #fff;
+    }
+    .banner-slider .owl-dots {
+        bottom: 0;
+        top: 100%;
+        left: 47%;
+        margin-top: 5px;
+    }
+    .logo img{
+        height: 60px;
+    }
+    .banner-slider .owl-dot{
+        background: #646464;
+    }
+    .banner-slider .owl-dot.active {
+      background: hsl(357, 82%, 48%) none repeat;
+    }
+    .navbar-toggle{ 
+        bottom: -8px;
+    }
+    .footer-nav li + li {
+     padding-left: 10px;
+    }
+    .nav-col{
+        margin: 0;
+    }
+    .navbar-toggle{
+        z-index: 9;
+    }
+    .product-1 {
+     height: 100px;
+     line-height: 6;
+   }
+    .product-details h3 {
+    font-size: 14px;
+   }
+    .product-details p, .leftOmm p {
+      font-size: 12px;
+    }
+    .rightOmm p span, .rightOmm p, .secB-vara p{
+        font-size: 13px;
+    }
+    .kontact-list li span {
+        background:none;
+        height: auto;
+        margin-right: 5px;
+        width: auto;
+    }
+    .kontact-list li span, .kontact-list li a {
+        line-height: 40px;
+    }
+    .kontact-list li + li {
+      margin-top: 0;
+    }
+}
+
+@media (max-width: 500px) {
+    .nav-col{
+        display: none;
+    }
+    .navbar-toggle {
+      bottom: 4px;
+    }
+    .kontact-list li a, .kontact-list li{
+        font-size: 13px;
+    }
+    .footer-nav{
+        float: inherit;
+        text-align: center;
+    }
+    .social-icon{
+        float: inherit;
+        margin: 0;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+    .kontact-list li + li{
+        margin-top: 0;
+    }
+/*
+    .kontact-list li span, .kontact-list li a{
+        line-height: 28px;
+    }
+*/
+    .kontact-list{
+        margin-bottom: 0;
+    }
+}
+@media (max-width: 430px) {
+/*
+    .footer-nav{
+        margin-bottom: 0;
+    }
+*/
+    .kontact-list li{
+        line-height: 24px;
+    }
+    .banner-slider .owl-dots{
+        left: 40%;
+    }
+    .block2{
+        margin: 0;
+    }
+    .block2 .imputOuter{
+        padding: 0;
+        float: inherit;
+        width: 100%;
+    }
+    .kontact-list li span, .kontact-list li a {
+       line-height: normal;
+    }
+    .kontact-list li + li {
+      margin-top: 5px;
+    }
+    .kontact-list li span{
+        margin-top: 3px;
+    }
+}
+@media (max-width: 400px) {
+	
+}
