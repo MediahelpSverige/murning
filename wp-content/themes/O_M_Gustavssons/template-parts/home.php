@@ -52,10 +52,10 @@ $telephone_no = get_theme_mod( 'primary_phone' );
 	  	  				if( $query_partner->have_posts() ) : $query_partner->the_post(); ?>
                     <h3><?php the_title(); ?></h3> <?php endif;wp_reset_postdata(); ?>
                    <ul class="kontact-list clearfix">
-                            <li><span><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/location.png" alt=""/></span><div class="address"><?php echo $address; ?></div></li>
+                            <li><span><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/location.png" alt=""/></span><div class="address"><?php echo $address; ?></div><div class="clearfix"></div></li>
                             <li><span><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/mail.png" alt=""/></span>
-                                <a href="mailto:info@o.m.gustavssonsmurning.com"><?php echo $email; ?></a></li>
-                            <li><span><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/tel.png" alt=""/></span><a href="tel:12345678"><?php echo $telephone_no; ?></a></li>
+                                <a href="mailto:info@o.m.gustavssonsmurning.com"><?php echo $email; ?></a><div class="clearfix"></div></li>
+                            <li><span><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/tel.png" alt=""/></span><a href="tel:12345678"><?php echo $telephone_no; ?></a><div class="clearfix"></div></li>
                     </ul>
                 </div>
             </div>
