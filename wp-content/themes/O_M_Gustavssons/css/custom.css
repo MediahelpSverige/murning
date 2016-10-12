@@ -391,6 +391,7 @@ h2.main-heading{
 }
 .om-css{
     padding: 0;
+    margin-bottom: 70px;
 }
 .secA-om{
     padding: 34px 0;
@@ -637,4 +638,11 @@ a.child-menu-btn:hover{
     
  }
 
+.worker-img{
+
+    display: block;
+    height: 270px;
+    width: auto;
+
+}
 

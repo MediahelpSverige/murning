@@ -545,6 +545,31 @@ wp_localize_script( 'functionsjs', 'ajaxpagination', array(
 	'ajaxurl' => admin_url( 'admin-ajax.php' ),
 ));
 
+function worker_posts() {
+	$args = array(
+
+		'public' =>true,
+		'label' => 'Anställda',
+		'description'        => __( 'Description.', 'landqvist' ),
+		'public'             => true,
+		'publicly_queryable' => true,
+		'show_ui'            => true,
+		'show_in_menu'       => true,
+		'query_var'          => true,
+		'rewrite'            => array( 'slug' => 'worker' ),
+		'capability_type'    => 'post',
+		'has_archive'        => true,
+		'hierarchical'       => false,
+		'menu_position'      => null,
+		'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' )
+
+	);
+
+	register_post_type( 'worker', $args );
+}
+
+add_action(  'init', 'worker_posts' );
+
 /*
 
 add_action('wp_ajax_my_ajax','my_ajax_get_posts');
