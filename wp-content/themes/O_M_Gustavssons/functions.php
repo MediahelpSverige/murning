@@ -545,6 +545,8 @@ wp_localize_script( 'functionsjs', 'ajaxpagination', array(
 	'ajaxurl' => admin_url( 'admin-ajax.php' ),
 ));
 
+/*
+
 add_action('wp_ajax_my_ajax','my_ajax_get_posts');
 add_action('wp_ajax_nopriv_my_ajax','my_ajax_get_posts');
 
@@ -560,15 +562,19 @@ function my_ajax_get_posts() {
 	 while ( $posts->have_posts() ) {
 	 	$posts->the_post();
 
-	 	the_title();
+	 	the_title('<h3>', '</h3>');
 
 	 	the_content();
 
 	 }
 
+	 die();
+
 
 
 	}
+
+	*/
 
 
 

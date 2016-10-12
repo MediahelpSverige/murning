@@ -621,5 +621,20 @@ a.child-menu-btn {
     display: block;
     margin-right: 10px;
     float: left;
+    cursor: pointer;
+    transition: 1s ease all;
 }
+
+a.child-menu-btn:hover{
+    background-color: orange;
+}
+
+ #ajax-response{
+
+
+    margin-bottom: 50px;
+
+    
+ }
+
 

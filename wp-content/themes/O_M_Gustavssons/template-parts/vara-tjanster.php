@@ -19,7 +19,7 @@
                 <h1><?php the_title(); ?></h1>
             </div>
 
-            <?php $args = array( 'post_type' => 'page', 'posts_per_page' => -1, 'post_parent' => 11);
+            <?php $args = array( 'post_type' => 'page', 'posts_per_page' => -1, 'post_parent' => 9);
 
 
 
@@ -33,7 +33,7 @@
 
                 ?> 
 
-                <a class="child-menu-btn" id="<?php echo $post->ID; ?>" > <?php the_title(); ?></a>
+                <a class="child-menu-btn" id="<?php echo $post->ID; ?>" href="<?php the_permalink(); ?>" > <?php the_title(); ?></a>
 
 
               <?php } 
