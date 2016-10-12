@@ -537,3 +537,40 @@ function footerCopyright_customizer( $wp_customize ) {
 
 }
 add_action( 'customize_register', 'footerCopyright_customizer' );
+
+wp_enqueue_script( 'functionsjs', get_template_directory_uri() . '/js/functions.js', array ( 'jquery' ), 1.1, true);
+
+global $wp_query;
+wp_localize_script( 'functionsjs', 'ajaxpagination', array(
+	'ajaxurl' => admin_url( 'admin-ajax.php' ),
+));
+
+add_action('wp_ajax_my_ajax','my_ajax_get_posts');
+add_action('wp_ajax_nopriv_my_ajax','my_ajax_get_posts');
+
+function my_ajax_get_posts() {
+
+	 $query_vars['p'] = $_POST['id'];
+	 $query_vars['post_type'] = 'page';
+	 $query_vars['posts_per_page'] = '-1';
+
+	 $posts = new WP_Query( $query_vars );
+
+
+	 while ( $posts->have_posts() ) {
+	 	$posts->the_post();
+
+	 	the_title();
+
+	 	the_content();
+
+	 }
+
+
+
+	}
+
+
+
+
+

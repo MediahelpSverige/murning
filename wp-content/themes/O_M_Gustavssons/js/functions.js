@@ -183,6 +183,8 @@
 	$( document ).ready( function() {
 		body = $( document.body );
 
+		console.log('test');
+
 		$( window )
 			.on( 'load.twentysixteen', onResizeARIA )
 			.on( 'resize.twentysixteen', function() {
@@ -196,5 +198,40 @@
 
 		belowEntryMetaClass( 'img.size-full' );
 		belowEntryMetaClass( 'blockquote.alignleft, blockquote.alignright' );
+
+		    $(document).on( 'click', '.child-menu-btn', function( event ) {
+
+        event.preventDefault();
+
+        console.log($(this).attr('id'));
+
+        var id = $(this).attr('id')
+
+        $.ajax({
+        url: ajaxpagination.ajaxurl,
+        type: 'post',
+        data: {
+            action: 'my_ajax',
+            id: id
+        },
+        beforeSend: function(){
+
+        	$('#ajax-response').empty();
+        },
+        success: function( html ) {
+        	console.log(html);
+        	
+            $('#ajax-response').append(html)
+        },
+
+        error: function(response){
+        	console.log(response);
+        }
+
+    })
+
+
+    })
+
 	} );
 } )( jQuery );
