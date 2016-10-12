@@ -27,7 +27,7 @@
                     </div>
                 </div>
             </div>
-            <div class="secB-om">
+      <!--  <div class="secB-om">
                 <div class="about-detailsSlider owl-carousel"> 
                 	<?php
 					if( have_rows('om_oss_gallery') ): while ( have_rows('om_oss_gallery') ) : the_row();
@@ -48,10 +48,11 @@
 				endif;
 				?>
                 </div>
-            </div>
+            </div> -->
              <?php endwhile ;wp_reset_postdata(); ?> 
              <div class="row">
             <div class="col-md-12">
+            <h2 class="page-title">Det här är vi:</h2>
                 <?php $args = array('post_type' => 'worker', 'posts_per_page' => -1); ?>
                 <?php $query = new WP_Query($args); ?>
                 <?php while($query->have_posts()){ 
