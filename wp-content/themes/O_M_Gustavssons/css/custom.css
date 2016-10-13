@@ -623,6 +623,7 @@ a.child-menu-btn {
     margin-right: 10px;
     float: left;
     cursor: pointer;
+    font-size: 20px;
     transition: 1s ease all;
 }
 
