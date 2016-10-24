@@ -33,13 +33,18 @@
 
                 ?> 
 
-                <a class="child-menu-btn" id="<?php echo $post->ID; ?>" href="<?php the_permalink(); ?>" > <?php the_title(); ?></a>
+
+                <a class="child-menu-btn" id="<?php echo $post->ID; ?>" href="<?php the_permalink(); ?>" > 
+                <img src="<?php the_post_thumbnail_url('large');?>">
+                <?php the_title('<h2>','</h2>'); ?></a>
 
 
               <?php } 
 
                 wp_reset_postdata();
               ?>
+
+              <div class="clearfix"></div>
 
             <div class="secA-om row">
 <!--
